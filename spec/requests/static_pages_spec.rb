@@ -7,17 +7,17 @@ describe "StaticPages" do
   describe "Home page" do
 
     it "should have the h1 'Sample App'" do
-      visit '/static_pages/home'
+      visit root_path
       page.should have_selector('h1', :text => 'Sample App')
     end
 
     it "should have the title" do
-      visit '/static_pages/home'
+      visit root_path
       page.should have_selector('title', :text => "#{base_title}")
     end
     
     it 'should not have title "Home"' do
-      visit '/static_pages/home'
+      visit root_path
       page.should_not have_selector("title", :text => "| Home")
     end
   end
@@ -25,12 +25,12 @@ describe "StaticPages" do
   describe 'Help page' do
   
     it 'should have the content "Help"' do
-      visit '/static_pages/help'
+      visit help_path
       page.should have_content 'Help'
     end
     
     it "should have the right title" do
-      visit "/static_pages/help"
+      visit help_path
       page.should have_selector('title',
                                  :text => "#{base_title} | Help")
     end
@@ -39,12 +39,12 @@ describe "StaticPages" do
   describe 'About page' do
   
     it 'it shoud have a content "About Us"' do
-      visit '/static_pages/about'
+      visit about_path
       page.should have_content 'About Us'
     end
     
     it "should have the right title" do
-      visit "/static_pages/about"
+      visit about_path
       page.should have_selector('title',
                                  :text => "#{base_title} | About Us")
     end
@@ -52,7 +52,7 @@ describe "StaticPages" do
   
   describe 'Content page' do
     it 'should have right title' do
-      visit "/static_pages/content"
+      visit content_path
       page.should have_selector("title", 
                                  :text => "#{base_title} | Content")
     end
